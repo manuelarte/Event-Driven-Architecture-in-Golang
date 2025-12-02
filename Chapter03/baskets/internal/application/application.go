@@ -56,7 +56,7 @@ type (
 	}
 )
 
-var _ App = (*Application)(nil)
+var _ App = new(Application)
 
 func New(baskets domain.BasketRepository, stores domain.StoreRepository, products domain.ProductRepository, orders domain.OrderRepository) *Application {
 	return &Application{
