@@ -15,7 +15,7 @@ type EventPublisher interface {
 
 type EventDispatcher struct {
 	handlers map[string][]EventHandler
-	mu       sync.Mutex
+	mu       sync.RWMutex
 }
 
 var _ interface {
@@ -37,6 +37,9 @@ func (h *EventDispatcher) Subscribe(event Event, handler EventHandler) {
 }
 
 func (h *EventDispatcher) Publish(ctx context.Context, events ...Event) error {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+
 	for _, event := range events {
 		for _, handler := range h.handlers[event.EventName()] {
 			err := handler(ctx, event)
