@@ -25,11 +25,7 @@ type (
 	}
 )
 
-var _ Event = (*event)(nil)
-
-func NewEvent(name string, payload EventPayload, options ...EventOption) event {
-	return newEvent(name, payload, options...)
-}
+var _ Event = new(event)
 
 func newEvent(name string, payload EventPayload, options ...EventOption) event {
 	evt := event{

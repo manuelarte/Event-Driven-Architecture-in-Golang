@@ -70,7 +70,7 @@ func registrations(reg registry.Registry) error {
 	serde := serdes.NewJsonSerde(reg)
 
 	// Basket
-	if err := serde.Register(domain.Basket{}, func(v interface{}) error {
+	if err := serde.Register(&domain.Basket{}, func(v interface{}) error {
 		basket := v.(*domain.Basket)
 		basket.Items = make(map[string]domain.Item)
 		return nil

@@ -49,7 +49,7 @@ type (
 	}
 )
 
-var _ App = (*Application)(nil)
+var _ App = new(Application)
 
 func New(stores domain.StoreRepository, participatingStores domain.ParticipatingStoreRepository,
 	products domain.ProductRepository, domainPublisher ddd.EventPublisher,

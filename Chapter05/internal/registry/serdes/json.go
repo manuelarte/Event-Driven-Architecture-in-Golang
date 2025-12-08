@@ -10,7 +10,7 @@ type JsonSerde struct {
 	r registry.Registry
 }
 
-var _ registry.Serde = (*JsonSerde)(nil)
+var _ registry.Serde = new(JsonSerde)
 
 func NewJsonSerde(r registry.Registry) *JsonSerde {
 	return &JsonSerde{r: r}

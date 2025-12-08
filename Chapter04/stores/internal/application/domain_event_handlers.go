@@ -16,24 +16,24 @@ type DomainEventHandlers interface {
 
 type ignoreUnimplementedDomainEvents struct{}
 
-var _ DomainEventHandlers = (*ignoreUnimplementedDomainEvents)(nil)
+var _ DomainEventHandlers = new(ignoreUnimplementedDomainEvents)
 
-func (ignoreUnimplementedDomainEvents) OnStoreCreated(ctx context.Context, event ddd.Event) error {
+func (ignoreUnimplementedDomainEvents) OnStoreCreated(_ context.Context, _ ddd.Event) error {
 	return nil
 }
 
-func (ignoreUnimplementedDomainEvents) OnStoreParticipationEnabled(ctx context.Context, event ddd.Event) error {
+func (ignoreUnimplementedDomainEvents) OnStoreParticipationEnabled(_ context.Context, _ ddd.Event) error {
 	return nil
 }
 
-func (ignoreUnimplementedDomainEvents) OnStoreParticipationDisabled(ctx context.Context, event ddd.Event) error {
+func (ignoreUnimplementedDomainEvents) OnStoreParticipationDisabled(_ context.Context, _ ddd.Event) error {
 	return nil
 }
 
-func (ignoreUnimplementedDomainEvents) OnProductAdded(ctx context.Context, event ddd.Event) error {
+func (ignoreUnimplementedDomainEvents) OnProductAdded(_ context.Context, _ ddd.Event) error {
 	return nil
 }
 
-func (ignoreUnimplementedDomainEvents) OnProductRemoved(ctx context.Context, event ddd.Event) error {
+func (ignoreUnimplementedDomainEvents) OnProductRemoved(_ context.Context, _ ddd.Event) error {
 	return nil
 }

@@ -57,13 +57,13 @@ func StartBasket(id, customerID string) (*Basket, error) {
 	return basket, nil
 }
 
-func (Basket) Key() string { return BasketAggregate }
+func (*Basket) Key() string { return BasketAggregate }
 
-func (b Basket) IsCancellable() bool {
+func (b *Basket) IsCancellable() bool {
 	return b.Status == BasketIsOpen
 }
 
-func (b Basket) IsOpen() bool {
+func (b *Basket) IsOpen() bool {
 	return b.Status == BasketIsOpen
 }
 
